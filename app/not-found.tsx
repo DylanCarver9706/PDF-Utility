@@ -3,7 +3,6 @@
 import { FileQuestion } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 
 // Component that uses useSearchParams
@@ -37,11 +36,6 @@ function NotFoundContent() {
   );
 }
 
-// Main component with Suspense boundary
 export default function NotFound() {
-  return (
-    <Suspense fallback={<div>Loading 404 page...</div>}>
-      <NotFoundContent />
-    </Suspense>
-  );
+  return <NotFoundContent />;
 }

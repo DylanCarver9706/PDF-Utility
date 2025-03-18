@@ -36,6 +36,7 @@ export default function SubscriptionPage() {
 
   useEffect(() => {
     checkSubscription();
+    // eslint-disable-next-line
   }, [user?.publicMetadata?.stripeSubscriptionId]);
 
   const checkSubscription = async () => {
@@ -298,19 +299,19 @@ export default function SubscriptionPage() {
   ) : null;
 
   return (
-    <main className="min-h-[calc(100vh-70px)] bg-gradient-to-b from-white to-gray-50">
-      <div className="max-w-xl mx-auto px-4 py-12">
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Your Subscription
-          </h1>
-          <p className="text-xl text-gray-600">
-            Manage your PDF Utility subscription and billing details
-          </p>
+      <main className="min-h-[calc(100vh-70px)] bg-gradient-to-b from-white to-gray-50">
+        <div className="max-w-xl mx-auto px-4 py-12">
+          <div className="text-center mb-8">
+            <h1 className="text-4xl font-bold text-gray-900 mb-4">
+              Your Subscription
+            </h1>
+            <p className="text-xl text-gray-600">
+              Manage your PDF Utility subscription and billing details
+            </p>
+          </div>
+          {subscriptionCard}
+          {noSubscriptionCard}
         </div>
-        {subscriptionCard}
-        {noSubscriptionCard}
-      </div>
-    </main>
+      </main>
   );
 }
