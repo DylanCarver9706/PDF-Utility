@@ -17,9 +17,9 @@ interface SplitPage {
   blob: Blob;
 }
 
-const FREE_USES_LIMIT = 3;
+const FREE_USES_LIMIT = parseInt(process.env.FREE_USES_LIMIT as string);
 
-export function BoltPdfSplit() {
+export function PdfSplit() {
   const [file, setFile] = useState<File | null>(null);
   const [processing, setProcessing] = useState(false);
   const [progress, setProgress] = useState(0);

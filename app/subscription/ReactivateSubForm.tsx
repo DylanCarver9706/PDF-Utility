@@ -19,7 +19,7 @@ const ReactivateSubForm = ({ onCancel, onSuccess }: ReactivateSubFormProps) => {
   const stripe = useStripe();
   const elements = useElements();
   const [loading, setLoading] = useState(false);
-  const [priceId, setPriceId] = useState(process.env.STRIPE_SUB_PRICE_ID);
+  const [priceId, setPriceId] = useState(process.env.NEXT_PUBLIC_STRIPE_SUB_PRICE_ID);
   const [error, setError] = useState<string | null>(null);
   const [cardError, setCardError] = useState<string | null>(null);
   const { user } = useUser();
@@ -157,7 +157,7 @@ const ReactivateSubForm = ({ onCancel, onSuccess }: ReactivateSubFormProps) => {
             >
               <div className="flex items-center space-x-2">
                 <RadioGroupItem
-                  value={process.env.STRIPE_SUB_PRICE_ID as string}
+                  value={process.env.NEXT_PUBLIC_STRIPE_SUB_PRICE_ID as string}
                   id="option-one"
                 />
                 <Label htmlFor="option-one">Pro</Label>

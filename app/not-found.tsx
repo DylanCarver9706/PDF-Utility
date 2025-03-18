@@ -3,8 +3,12 @@
 import { FileQuestion } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 
-export default function NotFound() {
+// Component that uses useSearchParams
+function NotFoundContent() {
+  const searchParams = useSearchParams();
   return (
     <>
       <div className="min-h-[calc(100vh-64px)] bg-gradient-to-b from-white to-gray-50 flex items-center justify-center">
@@ -15,10 +19,12 @@ export default function NotFound() {
             </div>
           </div>
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Whoops! This page isn&apos;t found or this feature isn&apos;t quite ready yet
+            Whoops! This page isn&apos;t found or this feature isn&apos;t quite
+            ready yet
           </h1>
           <p className="text-xl text-gray-600 mb-8">
-            Don&apos;t worry! You can head back to our homepage and explore our available PDF tools.
+            Don&apos;t worry! You can head back to our homepage and explore our
+            available PDF tools.
           </p>
           <Link href="/">
             <Button className="bg-red-600 hover:bg-red-700 text-white px-8 py-6 text-lg h-auto">
@@ -28,5 +34,14 @@ export default function NotFound() {
         </div>
       </div>
     </>
+  );
+}
+
+// Main component with Suspense boundary
+export default function NotFound() {
+  return (
+    <Suspense fallback={<div>Loading 404 page...</div>}>
+      <NotFoundContent />
+    </Suspense>
   );
 }

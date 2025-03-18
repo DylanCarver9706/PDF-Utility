@@ -5,7 +5,6 @@ import { ClerkProvider } from "@clerk/nextjs";
 
 import "./globals.css";
 import { Navbar } from "@/components/navbar";
-import { BoltNavbar } from "@/components/boltNavbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,8 +23,7 @@ export default function RootLayout({
       <html lang="en" suppressHydrationWarning>
         <body className={inter.className} suppressHydrationWarning>
           <PostHogProvider>
-            {/* <Navbar /> */}
-            <BoltNavbar />
+            <Navbar />
             {children}
           </PostHogProvider>
         </body>

@@ -1,4 +1,4 @@
-import { BoltPdfSplit } from "@/components/boltPdfSplit";
+import { PdfSplit } from "@/components/pdfSplit";
 
 export default function SplitPDF() {
   return (
@@ -14,7 +14,7 @@ export default function SplitPDF() {
             </p>
           </div>
           
-          <BoltPdfSplit />
+          <PdfSplit />
         </div>
       </main>
     </>
